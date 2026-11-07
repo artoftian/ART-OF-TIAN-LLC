@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Art of Tian — Original Art</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Limelight&family=Poiret+One&display=swap">
+<style>
+:root{--bg:#faf9f6;--fg:#1a1a1a;--mut:#77736b;--line:#e4e1da;--card:#efede7;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121211;--fg:#eeece6;--mut:#9a968c;--line:#2a2927;--card:#1c1b1a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121211;--fg:#eeece6;--mut:#9a968c;--line:#2a2927;--card:#1c1b1a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:300 15px/1.7 Futura,"Jost","Century Gothic",system-ui,sans-serif}
+a{color:inherit}
+header,main,footer{max-width:1100px;margin:0 auto;padding-left:24px;padding-right:24px}
+header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:28px;padding-bottom:28px}
+.logo{font:400 44px/1 "Mrs Saint Delafield",cursive;text-decoration:none}
+.logo img{height:54px;width:auto;display:block}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo img{filter:invert(1)}}
+:root[data-theme="dark"] .logo img{filter:invert(1)}
+nav a{margin-left:22px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+nav a:hover,nav a.on{color:#b08d3c}
+header{border-bottom:3px double var(--line);margin-bottom:36px}
+.dd{display:inline-block;position:relative;margin-left:22px}
+.ddt{font:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);background:none;border:0;padding:0;cursor:pointer}
+.ddt::after{content:"";display:inline-block;width:5px;height:5px;border:solid currentColor;border-width:0 1px 1px 0;transform:rotate(45deg);margin:0 0 3px 8px}
+.ddt:hover,.ddt.on,.dd.open .ddt{color:#b08d3c}
+.ddm{display:none;position:absolute;top:100%;left:-18px;min-width:150px;padding:10px 0;background:var(--bg);border:1px solid var(--line);z-index:20}
+.dd.open .ddm{display:block}
+@media (hover:hover){.dd:hover .ddm{display:block}}
+.ddm a{display:block;margin:0;padding:8px 18px;white-space:nowrap}
+.cf label.f{display:block;margin:0 0 24px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.cf input[type=text],.cf input[type=email],.cf textarea,.cf select{display:block;width:100%;margin-top:8px;padding:11px 12px;background:transparent;color:var(--fg);border:1px solid var(--line);border-radius:0;font:300 15px/1.5 Futura,"Jost","Century Gothic",system-ui,sans-serif;letter-spacing:0;text-transform:none}
+.cf textarea{resize:vertical}
+.cf fieldset{border:0;padding:0;margin:0 0 24px}
+.cf legend{padding:0;margin-bottom:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.cf .chip{display:inline-block;margin:0 16px 8px 0;font-size:14px;color:var(--fg);cursor:pointer}
+.cf .chip input{margin-right:6px}
+button.buy{background:none;color:var(--fg);font-family:inherit;cursor:pointer}
+.note{margin-top:18px;font-size:13px}
+h1,h2{font:400 28px/1.3 Limelight,Futura,"Jost",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin:0 0 .8em}
+.intro{max-width:520px;color:var(--mut);margin:0 0 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:48px 32px;align-items:start}
+.art.has{aspect-ratio:auto;background:none;border:0;cursor:zoom-in}
+.art.has img{width:100%;height:auto;display:block}
+.more{margin-top:56px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.more a{margin-right:22px;color:var(--mut);text-decoration:none}.more a:hover{color:var(--fg)}
+.empty{color:var(--mut)}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:24px;z-index:50;cursor:zoom-out}
+#lb.on{display:flex}#lb img{max-width:100%;max-height:100%;object-fit:contain}
+.art{aspect-ratio:4/5;background:var(--card);position:relative;overflow:hidden;border:1px solid var(--line)}
+.art i{position:absolute;display:block}
+.meta{display:flex;justify-content:space-between;gap:12px;margin-top:12px}
+.meta b{font:400 21px/1.2 "Poiret One",Futura,"Jost",system-ui,sans-serif;letter-spacing:.06em}
+.meta small{display:block;color:var(--mut);font-size:12px}
+.buy{display:inline-block;margin-top:8px;padding:9px 22px;border:1px solid var(--fg);font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none}
+.buy:hover{background:var(--fg);color:var(--bg)}
+.sold{margin-top:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.page{max-width:640px}
+.page h2{font:500 13px/1.4 Futura,"Jost","Century Gothic",system-ui,sans-serif;letter-spacing:.16em;margin-top:2em}
+.portrait{display:block;width:100%;max-width:440px;height:auto;margin:0 0 32px}
+.page p,.page li{color:var(--mut)}
+footer{border-top:3px double var(--line);margin-top:80px;padding-top:28px;padding-bottom:40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--mut)}
+footer a{margin-right:18px;text-decoration:none}
+footer a:hover{color:var(--fg)}
+.view{display:none}.view.on{display:block}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#shop" aria-label="Home"><img src="images/signature.png" alt="Art of Tian"></a>
+  <nav><div class="dd"><button type="button" class="ddt" aria-haspopup="true">Shop</button><div class="ddm"><a href="#shop" data-v="shop">Paintings</a><a href="#drawings" data-v="drawings">Drawings</a></div></div><a href="#about" data-v="about">About</a><a href="#shipping" data-v="shipping">Shipping</a><a href="#contact" data-v="contact">Contact</a></nav>
+</header>
+<main>
+  <section class="view" id="v-shop">
+    <p class="intro">Original oil paintings, made by hand and sold directly by the artist. All works are sold unframed; framing is available as an optional extra at additional cost. Each piece includes a signed certificate of authenticity.</p>
+    <div class="grid" id="grid"></div>
+    <p class="more"><a href="#archive">More paintings</a><a href="#drawings">Drawings</a></p>
+  </section>
+
+  <section class="view" id="v-drawings">
+    <h1>Drawings</h1>
+    <div class="grid" id="grid-drawings"></div>
+  </section>
+
+  <section class="view" id="v-archive">
+    <h1>Paintings Archive</h1>
+    <div class="grid" id="grid-archive"></div>
+  </section>
+
+  <section class="view page" id="v-about">
+    <h1>About</h1>
+    <img class="portrait" src="images/portrait.jpg" width="864" height="900" alt="Self-portrait of Tian">
+    <p>Tian is a Miami-based artist and musician working across sound and sight.</p>
+    <p>Known for his work in deep creative circles within art, music &amp; design, Tian has built a reputation on composition, texture, and emotional precision, qualities he expresses in his visual practice.</p>
+    <p>Working primarily with oils, occasionally delving into mixed media territory, with sealed rose petals, gold leaf, and layered surfaces, Tian creates one-of-one originals that sit between structure and bloom: geometric, deliberate, and deeply sensual at once. Works like “el león de oro,” “and his heart hardened,” and “between structure &amp; bloom” explore power, tenderness, faith, and identity through saturated color and meticulous design.</p>
+    <p>Each piece is made as a singular artifact — signed, 1 of 1, unframed — intended to live with the collector and grow more complex over time, the way a song does.</p>
+    <p>Tian lives and works in Miami, Florida.</p>
+    <h2>Practices</h2>
+    <ul style="list-style:none;padding:0;margin:0">
+      <li><strong>Music:</strong> production / composition / performance</li>
+      <li><strong>Visual Art:</strong> oil / acrylic / mixed media</li>
+      <li><strong>Design:</strong> technical drafting / drawing</li>
+    </ul>
+  </section>
+
+  <section class="view page" id="v-shipping">
+    <h1>Shipping</h1>
+    <h2>Processing</h2><p>Orders are packed within 3–5 business days. Because each piece is original, availability is limited to one.</p>
+    <h2>Delivery</h2><p>Works ship insured and tracked. Domestic delivery typically takes 3–7 business days; international 7–21 business days. Customs duties and import taxes are the buyer’s responsibility.</p>
+    <h2>Packaging</h2><p>Every piece is wrapped in acid-free materials and shipped in a rigid, protective carton or crate.</p>
+    <h2>Framing</h2><p>All paintings are sold unframed. Framing is optional and available at an additional cost; email me for a quote before you order.</p>
+  </section>
+
+  <section class="view page" id="v-returns">
+    <h1>Returns</h1>
+    <p>If a work arrives damaged, contact me within 7 days with photos and I will arrange a repair, replacement, or refund. Because these are original works, other returns are accepted within 14 days of delivery if the piece is unaltered and returned in its original packaging at the buyer’s expense.</p>
+  </section>
+
+  <section class="view page" id="v-privacy">
+    <h1>Privacy Policy</h1>
+    <p>I collect only the information needed to process and ship your order, such as your name, address, email, and payment details. Payment is arranged directly with you and handled through a secure third-party method; I do not store your full card number.</p>
+    <h2>How information is used</h2><p>To fulfill orders, respond to messages, and meet legal obligations. I do not sell your personal information.</p>
+    <h2>Your rights</h2><p>You may request access to or deletion of your data at any time through the contact page.</p>
+  </section>
+
+  <section class="view page" id="v-terms">
+    <h1>Terms of Sale</h1>
+    <p>All artwork is the original work of the artist. Purchasing a work transfers ownership of the physical piece only; copyright, including reproduction rights, remains with the artist.</p>
+    <h2>Pricing and payment</h2><p>Prices are listed in US dollars. Sales are arranged by inquiry: after you reach out, I will confirm availability and send payment instructions. Payment is due in full before the work ships. Colors may vary slightly between screens and the physical work.</p>
+    <h2>Governing law</h2><p>These terms are governed by the laws of the artist’s home jurisdiction.</p>
+  </section>
+
+  <section class="view page" id="v-commissions">
+    <h1>Commissions</h1>
+    <p>I accept a limited number of one-of-one commissions. Tell me what moves you, and I’ll reply personally to talk through ideas, size, timeline, and pricing. Terms are agreed in writing before any work begins.</p>
+    <form id="cform" class="cf">
+      <label class="f">Your name<input type="text" name="name" required></label>
+      <label class="f">Email<input type="email" name="email" required></label>
+      <label class="f">Which of my works speak to you, and why?<textarea name="works" rows="3"></textarea></label>
+      <label class="f">Where will it live?<select name="place"><option>Home</option><option>Office or studio</option><option>A gift for someone</option><option>Gallery or public space</option><option>Not sure yet</option></select></label>
+      <label class="f">Approximate size<select name="size"><option>Small (up to 16 × 20 in)</option><option>Medium (20 × 24 to 30 × 36 in)</option><option>Large (36 × 48 in or more)</option><option>Not sure yet</option></select></label>
+      <fieldset><legend>What should it feel like?</legend>
+        <label class="chip"><input type="checkbox" name="mood" value="Powerful">Powerful</label><label class="chip"><input type="checkbox" name="mood" value="Tender">Tender</label><label class="chip"><input type="checkbox" name="mood" value="Sacred">Sacred</label><label class="chip"><input type="checkbox" name="mood" value="Sensual">Sensual</label><label class="chip"><input type="checkbox" name="mood" value="Serene">Serene</label><label class="chip"><input type="checkbox" name="mood" value="Bold">Bold</label><label class="chip"><input type="checkbox" name="mood" value="Mysterious">Mysterious</label><label class="chip"><input type="checkbox" name="mood" value="Playful">Playful</label>
+      </fieldset>
+      <fieldset><legend>What do you want to see in it?</legend>
+        <label class="chip"><input type="checkbox" name="subject" value="Figure">Figure</label><label class="chip"><input type="checkbox" name="subject" value="Portrait">Portrait</label><label class="chip"><input type="checkbox" name="subject" value="Geometric abstraction">Geometric abstraction</label><label class="chip"><input type="checkbox" name="subject" value="Floral or botanical">Floral or botanical</label><label class="chip"><input type="checkbox" name="subject" value="Architecture or interiors">Architecture or interiors</label><label class="chip"><input type="checkbox" name="subject" value="Symbolic or spiritual">Symbolic or spiritual</label>
+      </fieldset>
+      <label class="f">Colors you’re drawn to, and colors to avoid<input type="text" name="colors"></label>
+      <label class="f">A story, memory, or idea you’d like carried in the painting<textarea name="story" rows="5"></textarea></label>
+      <label class="f">Symbols, names, dates, or references that matter, and anything to avoid<textarea name="notes" rows="3"></textarea></label>
+      <label class="f">Budget<select name="budget"><option>Under $10,000</option><option>$10,000 to $25,000</option><option>$25,000 to $50,000</option><option>$50,000 or more</option><option>Let’s discuss</option></select></label>
+      <label class="f">Timeline<select name="time"><option>No rush</option><option>Within 3 months</option><option>Within 6 months</option><option>For a specific date (tell me in the notes)</option></select></label>
+      <label class="f">Framing<select name="frame"><option>Unframed is fine</option><option>I’d like a framing quote</option><option>Not sure yet</option></select></label>
+      <button type="button" class="buy" id="csend">Send inquiry</button>
+      <p class="note" id="cnote"></p>
+    </form>
+  </section>
+
+  <section class="view page" id="v-contact">
+    <h1>Contact</h1>
+    <p>For commissions, questions about a work, or press inquiries, email <a href="mailto:tian@artoftian.com">tian@artoftian.com</a>.</p>
+    <p>Instagram: <a href="https://instagram.com/artoftian" target="_blank" rel="noopener">@artoftian</a></p>
+  </section>
+</main>
+<footer>
+  <div><a href="#about">About</a><a href="#archive">Archive</a><a href="#drawings">Drawings</a><a href="#commissions">Commissions</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#contact">Contact</a><a href="https://instagram.com/artoftian" target="_blank" rel="noopener">Instagram</a></div>
+  <div>© <span id="yr">2026</span> Art of Tian. All rights reserved.</div>
+</footer>
+<div id="lb"><img alt=""></div>
+<script>
+// Each work: t=title, m=medium/size, p=price (number, or null for "inquire"), link=Stripe Payment Link, sold:true to mark sold.
+var IMG={a:"images/and-his-heart-hardened.jpg",b:"images/between-structure-bloom.jpg"};
+var WORKS=[
+ {t:"And His Heart Hardened",m:"Oil on canvas · 36 × 36 in",p:33696,link:"",img:IMG.a},
+ {t:"Between Structure & Bloom",m:"Oil on canvas · 30 × 30 in",p:23400,link:"",img:IMG.b},
+ {t:"Rainbow Body",m:"Oil on canvas · 30 × 36 in",p:28080,link:"",img:"images/rainbow-body.jpg"},
+ {t:"El León de Oro",m:"Oil on canvas · 36 × 48 in",p:44928,link:"",img:"images/el-leon-de-oro.jpg"},
+ {t:"Eternal Purpose",m:"Oil on canvas · 16 × 20 in",p:8320,link:"",img:"images/eternal-purpose.jpg"},
+ {t:"El Rancho",m:"Oil on canvas · 16 × 20 in",p:8320,link:"",img:"images/el-rancho.jpg"}
+];
+var DRAWINGS=[
+ {t:"Rough",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-rough.jpg"},
+ {t:"Form 2",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-form-2.jpg"},
+ {t:"Form (NYC Series)",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-form-nyc-series.jpg"},
+ {t:"Form 3",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-form-3.jpg"},
+ {t:"Orchid",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-orchid.jpg"},
+ {t:"Butterfly",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-butterfly.jpg"},
+ {t:"Wednesday Night",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-wednesday-night.jpg"},
+ {t:"Quantum",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-quantum.jpg"},
+ {t:"Pedestrian (NYC Series)",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-pedestrian-nyc-series.jpg"},
+ {t:"Productivity",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-productivity.jpg"},
+ {t:"Backside",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-backside.jpg"},
+ {t:"León",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-leon.jpg"},
+ {t:"Form",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-form.jpg"},
+ {t:"Nude",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-nude.jpg"},
+ {t:"Box",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-box.jpg"},
+ {t:"Subway (NYC Series)",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-subway-nyc-series.jpg"},
+ {t:"Florida",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-florida.jpg"},
+ {t:"Empire of the State",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-empire-of-the-state.jpg"},
+ {t:"Jay",m:"Drawing on paper · medium and size to be added",p:null,link:"",img:"images/drawing-jay.jpg"},
+ {t:"Ahmad K",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-ahmad-k.jpg"},
+ {t:"Box 1",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-box-1.jpg"},
+ {t:"Bubbles",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-bubbles.jpg"},
+ {t:"Chair 2",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-chair-2.jpg"},
+ {t:"Concrete Forms",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-concrete-forms.jpg"},
+ {t:"Don’t Cry",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-don-t-cry.jpg"},
+ {t:"Eye",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-eye.jpg"},
+ {t:"Eyes",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-eyes.jpg"},
+ {t:"Flowers 1",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-flowers-1.jpg"},
+ {t:"Forms",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-forms.jpg"},
+ {t:"Green Apple",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-green-apple.jpg"},
+ {t:"Heart Chair",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-heart-chair.jpg"},
+ {t:"Horn Chair",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-horn-chair.jpg"},
+ {t:"Joshua",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-joshua.jpg"},
+ {t:"Josiah",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-josiah.jpg"},
+ {t:"La Vie en Rouge",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-la-vie-en-rouge.jpg"},
+ {t:"Lucas Vidal",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-lucas-vidal.jpg"},
+ {t:"Ma Jolie",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-ma-jolie.jpg"},
+ {t:"Money Man",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-money-man.jpg"},
+ {t:"Munchie",m:"Drawing on kraft paper · medium and size to be added",p:null,link:"",img:"images/drawing-munchie.jpg"}
+];
+var ARCHIVE=[
+ {t:"Fruta Terrestre",m:"Oil on canvas · 16 × 20 in",p:8320,link:"",img:"images/fruta-terrestre.jpg"},
+ {t:"Is That All in Her Head",m:"Oil on canvas · 16 × 20 in",p:8320,link:"",img:"images/is-that-all-in-her-head.jpg"},
+ {t:"If He Is God, Who Is She",m:"Oil on canvas · 16 × 20 in",p:8320,link:"",img:"images/if-he-is-god-who-is-she.jpg"},
+ {t:"Varied",m:"Oil on canvas · 20 × 24 in",p:12480,link:"",img:"images/varied.jpg"}
+];
+var MAIL="tian@artoftian.com";
+var lb=document.getElementById("lb");
+lb.onclick=function(){lb.classList.remove("on")};
+function render(id,list,msg){
+  var g=document.getElementById(id);
+  if(!list.length){g.innerHTML='<p class="empty">'+msg+'</p>';return;}
+  list.forEach(function(w){
+    var d=document.createElement("article");
+    var a=document.createElement("div");a.className="art has";
+    var im=document.createElement("img");im.src=w.img;im.alt=w.t;im.loading="lazy";
+    a.appendChild(im);
+    a.onclick=function(){lb.firstChild.src=w.img;lb.classList.add("on")};
+    var m=document.createElement("div");m.className="meta";
+    var l=document.createElement("div");
+    var b=document.createElement("b");b.textContent=w.t;
+    var sm=document.createElement("small");sm.textContent=w.m;
+    l.appendChild(b);l.appendChild(sm);
+    var p=document.createElement("div");p.textContent=w.p?"$"+w.p.toLocaleString("en-US"):"";
+    m.appendChild(l);m.appendChild(p);
+    d.appendChild(a);d.appendChild(m);
+    if(w.sold){var x=document.createElement("div");x.className="sold";x.textContent="Sold";d.appendChild(x);}
+    else{var k=document.createElement("a");k.className="buy";
+      if(w.link){k.href=w.link;k.textContent="Buy now";}
+      else{k.href="mailto:"+MAIL+"?subject="+encodeURIComponent("Inquiry: "+w.t);k.textContent="Inquire";}
+      d.appendChild(k);}
+    g.appendChild(d);
+  });
+}
+render("grid",WORKS,"");
+render("grid-drawings",DRAWINGS,"Drawings are coming soon.");
+render("grid-archive",ARCHIVE,"More paintings are coming soon.");
+var cf=document.getElementById("cform"),cn=document.getElementById("cnote");
+document.getElementById("csend").onclick=function(){
+  if(!cf.reportValidity())return;
+  var f=new FormData(cf);
+  function g(k){return f.getAll(k).join(", ")||"—"}
+  var L=["Name: "+g("name"),"Email: "+g("email"),"","Works that speak to me: "+g("works"),"Where it will live: "+g("place"),"Size: "+g("size"),"Feeling: "+g("mood"),"Subject: "+g("subject"),"Colors (drawn to / avoid): "+g("colors"),"","Story, memory, or idea:",g("story"),"","Symbols, names, dates, references, things to avoid:",g("notes"),"","Budget: "+g("budget"),"Timeline: "+g("time"),"Framing: "+g("frame")];
+  location.href="mailto:"+MAIL+"?subject="+encodeURIComponent("Commission inquiry — "+f.get("name"))+"&body="+encodeURIComponent(L.join("\n"));
+  cn.textContent="Your email app should open with your answers ready to send. If it doesn’t, write to "+MAIL+" directly.";
+};
+document.getElementById("yr").textContent=new Date().getFullYear();
+var views=["shop","about","shipping","returns","privacy","terms","contact","drawings","archive","commissions"];
+function route(){
+  var h=(location.hash||"").replace("#","");
+  if(views.indexOf(h)<0)h="shop";
+  views.forEach(function(v){document.getElementById("v-"+v).classList.toggle("on",v===h)});
+  document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.dataset.v===h)});
+  ddt.classList.toggle("on",["shop","drawings","archive"].indexOf(h)>-1);
+  dd.classList.remove("open");
+  window.scrollTo(0,0);
+}
+var dd=document.querySelector(".dd"),ddt=dd.querySelector(".ddt");
+ddt.onclick=function(e){e.stopPropagation();dd.classList.toggle("open")};
+document.addEventListener("click",function(){dd.classList.remove("open")});
+window.addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
